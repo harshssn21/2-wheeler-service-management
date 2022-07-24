@@ -1,0 +1,127 @@
+Linked List
+class Node:
+    def __init__(self,item=None,next=None):
+        self._item=item
+        self._next=next
+class LinkedList:
+    def __init__(self):
+        self._head=self._end=Node()
+        self._size=0
+    def __str__(self):
+        strg="["
+        c=self._head._next
+        if c==None:
+            strg+="]"
+            return strg
+        for i in range(self._size):
+            strg+=str(c._item)+","
+            c=c._next
+        strg=strg[:-1]+"]"
+        return strg
+    def insert(self,item):
+        self._end._next=Node(item,self._end._next)
+        self._end=self._end._next
+        self._size+=1
+    def delete(self,pos):
+        if pos is None:
+            return None
+        if pos._next is None:
+            return None
+        if pos._next==self._end:
+            x=self._end._item
+            self._end=pos
+            return x
+        x=pos._next._item
+        pos._next=pos._next._next
+        self._size-=1
+        return x
+    def find(self,item):
+        pos=self._head
+        while pos._next!=None:
+            if pos._next._item==item:
+                return pos
+            else:
+                pos=pos._next
+        return None
+
+    def retrieve(self):
+        p=self._head
+        while p._next is not None:
+            print(p._next._item)
+            p=p._next
+    def finding(self,item):
+        p=self._head
+        while p._next is not None:
+            if p._next._item==item:
+                return p._next._item
+            p=p._next
+        return None
+
+Linked Queue
+class Node:
+    def __init__(self,item=None,next=None):
+        self._item=item
+        self._next=next
+class LinkedQueue:
+    def __init__(self):
+        self._head=self._end=Node()
+        self._size=0
+    def __str__(self):
+        strg="["
+        c=self._head._next
+        if c==None:
+            strg+="]"
+            return strg
+        for i in range(self._size):
+            strg+=str(c._item)+","
+            c=c._next
+        strg=strg[:-1]+"]"
+        return strg
+    def enqueue(self,item):
+        self._end._next=Node(item,self._end._next)
+        self._end=self._end._next
+        self._size+=1
+    def dequeue(self):
+        if self._head._next is None:
+            return None
+        x=self._head._next._item
+        self._head._next=self._head._next._next
+        self._size-=1
+        return x
+    def retrieve(self):
+        p=self._head
+        while p._next is not None:
+            print(p._item)
+        else:
+            return None
+
+WorkerClass
+from lqproj import LinkedQueue
+from llproj import LinkedList
+class Worker:
+    def __init__(self,id,name):
+        self._name=name
+        self._id=id
+        self._works=LinkedQueue()
+    def __str__(self):
+        strg="Name:"+str(self._name)+"\nID  :"+str(self._id)
+        return strg
+    def addservice(self,service):
+        self._works.enqueue(service)
+    def removeservice(self):
+        self._works.dequeue()
+w1=Worker("W01","Ram")
+w2=Worker("W02","Krish")
+w3=Worker("W03","Shiv")
+w4=Worker("W04","Balaji")
+w5=Worker("W05","Vicky")
+print(w1)
+WorkersList=LinkedList()
+WorkersList.insert(w1)
+WorkersList.insert(w2)
+WorkersList.insert(w3)
+WorkersList.insert(w4)
+WorkersList.insert(w5)
+
+        
+        
