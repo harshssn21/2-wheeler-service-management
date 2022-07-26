@@ -10,7 +10,7 @@ load = Image.open(path)
 render = ImageTk.PhotoImage(load)
 root.iconphoto(False, render)
 
-global canvas 
+
 canvas = Canvas(
     root,
     bg = "#FFFFFF",
@@ -37,42 +37,56 @@ def clickcustsign():
     top2=Toplevel()
     top2.geometry("1920x1080")
     
-    canvas.place(x = 0, y = 0)
-    image_image_3 = ImageTk.PhotoImage(Image.open("background.jpg"))
-    xyz = canvas.create_image(924.0,382.0,image=image_image_3)
     
-    image=Image.open("mahadev.jpg")
-    img=image.resize((450, 350))
-    my_img = ImageTk.PhotoImage(img) 
+    #image=Image.open("mahadev.jpg")
+    #img=image.resize((450, 350))
+    #my_img = ImageTk.PhotoImage(img) 
 
     
 
     custfname=Entry(top2)
-    label1=Label(top2,text="First name")
-    label1.pack()
-    custfname.pack()
+    label1=Label(top2,text="First name -")
+    label1.place(x=595.0,y=50.0)
+    custfname.place(x=600.0,y=75.0,width=114.0,height=25.0)
+
     custlname=Entry(top2)
-    label2=Label(top2,text="Last name")
-    label2.pack()
-    custlname.pack()
+    label2=Label(top2,text="Last name -")
+    label2.place(x=595,y=150)
+    custlname.place(x=600,y=175,width=114.0,height=25.0)
+
     custemail=Entry(top2)
-    label3=Label(top2,text="Email")
-    label3.pack()
-    custemail.pack()
+    label3=Label(top2,text="Email -")
+    label3.place(x=595,y=250)
+    custemail.place(x=600,y=275,width=114.0,height=25.0)
+
     custphone=Entry(top2)
-    label4=Label(top2,text="Mobile number")
-    label4.pack()
-    custphone.pack()
+    label4=Label(top2,text="Mobile number -")
+    label4.place(x=595.0,y=350.0)
+    custphone.place(x=600,y=375,width=114.0,height=25.0)
+
     custpass=Entry(top2)
-    label5=Label(top2,text="Set password")
-    label5.pack()
-    custpass.pack()
+    label5=Label(top2,text="Set password -")
+    label5.place(x=595.0,y=450.0)
+    custpass.place(x=600,y=475,width=114.0,height=25.0)
+    
+    #button_image_5 = ImageTk.PhotoImage(Image.open("button_4-Copy.png"))
+    '''custsubmit=Button(top2,
+    image=button_image_5,
+    borderwidth=0,
+    highlightthickness=0,
+    relief="flat",
+    text="customer sign in",command=clicksignup)'''
     custsubmit=Button(top2,text="sign up",command=clicksignup)
-    custsubmit.pack()
+    custsubmit.place(x=595,y=570,width=114.0,height=30.0)
+
     label5=Label(top2,text="already a customer?")
-    label5.pack()
-    custlog=Button(top2,text="customer login",command=clickcustlog)
-    custlog.pack()
+    label5.place(x=595.0,y=650.0)
+
+    custlog=Button(top2,text="Login",command=clickcustlog)
+    custlog.place(x=630.0,y=680.0)
+
+    
+    
     
     
 
@@ -107,34 +121,44 @@ def clicksignup():
     services="The services are"
     top1=Toplevel()
     top1.geometry("1920x1080")
-    label1=Label(top1,text="welcome"+" "+custfname.get()+" "+"enter your vehicle details and pick the services you want")
-    label1.pack()
-    label2=Label(top1,text="Vehicle Brand and Model")
-    label2.pack() 
+    label1=Label(top1,text="Welcome !! "+" "+custfname.get())
+    label1.place(x=630.0,y=50.0)
+
+    label2=Label(top1,text="Vehicle Brand and Model -")
+    label2.place(x=595,y=100) 
     vbrand=Entry(top1)
-    vbrand.pack()
-    label3=Label(top1,text="Vehicle Reg no.")
-    label3.pack() 
+    vbrand.place(x=600,y=125,width=114.0,height=25.0)
+
+    label3=Label(top1,text="Vehicle Reg no. -")
+    label3.place(x=595,y=175) 
     vreg=Entry(top1)
-    vreg.pack()
+    vreg.place(x=600,y=200,width=114.0,height=25.0)
+
+    label4=Label(top1,text="Enter your vehicle details and pick the services you want :")
+    label4.place(x=510,y=250)
+
     var1=IntVar()
     gen=Checkbutton(top1,text="general service",variable=var1)
-    gen.pack()
+    gen.place(x=595,y=270)
+
     var2=IntVar()
     oils=Checkbutton(top1,text="oil service",variable=var2)
-    oils.pack()
+    oils.place(x=595,y=290)
+
     var3=IntVar()
     br=Checkbutton(top1,text="break system maintanance",variable=var3)
-    br.pack()
+    br.place(x=595,y=310)
+
     var4=IntVar()
     eng=Checkbutton(top1,text="engine maintanance",variable=var4)
-    eng.pack()
+    eng.place(x=595,y=330)
+
     var5=IntVar()
     cl=Checkbutton(top1,text="oil service",variable=var5)
-    cl.pack()
+    cl.place(x=595,y=350)
     
     subbut=Button(top1,text="submit",command=jobcard)
-    subbut.pack()
+    subbut.place(x=630,y=450)
     
 
     
